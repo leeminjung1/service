@@ -18,6 +18,8 @@ public class LoggerFilter implements Filter {
         var req = new ContentCachingRequestWrapper((HttpServletRequest) servletRequest);
         var res = new ContentCachingResponseWrapper((HttpServletResponse) servletResponse);
 
+        log.info("INIT URI : {}", req.getRequestURI());
+
         filterChain.doFilter(req, res);
 
         // request 정보
@@ -28,11 +30,11 @@ public class LoggerFilter implements Filter {
             var headerValue = req.getHeader(headerkey);
 
             headerValues
-                .append("[")
-                .append(headerkey)
-                .append(" : ")
-                .append(headerValue)
-                .append("] ");
+                    .append("[")
+                    .append(headerkey)
+                    .append(" : ")
+                    .append(headerValue)
+                    .append("] ");
         });
 
         var requestBody = new String(req.getContentAsByteArray());

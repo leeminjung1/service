@@ -4,7 +4,7 @@ import com.delivery.api.common.error.ErrorCodeInterface;
 
 public interface ApiExceptionInterface {
 
-	ErrorCodeInterface getErrorCodeInterface();
+    ErrorCodeInterface getErrorCodeInterface();
 
-	String getErrorDescription();
+    String getErrorDescription();
 }
